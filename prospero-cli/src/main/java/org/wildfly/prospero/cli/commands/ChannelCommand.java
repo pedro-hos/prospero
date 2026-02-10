@@ -32,6 +32,7 @@ import org.wildfly.prospero.cli.CliConsole;
 import org.wildfly.prospero.cli.CliMessages;
 import org.wildfly.prospero.cli.ReturnCodes;
 import org.wildfly.prospero.metadata.ManifestVersionRecord;
+
 import picocli.CommandLine;
 
 @CommandLine.Command(name = CliConstants.Commands.CHANNEL)
@@ -79,6 +80,7 @@ public class ChannelCommand extends AbstractCommand {
                     console.println(ChannelMapper.toYaml(channels));
                 } else {
                         ChannelManifestCoordinate coordinate = channel.getManifestCoordinate();
+                        console.println("Use the --full parameter for a complete overview.");
                         if (coordinate != null) {
                             // Full Maven GAV
                             if (coordinate.getVersion() != null && !coordinate.getVersion().isEmpty()) {
