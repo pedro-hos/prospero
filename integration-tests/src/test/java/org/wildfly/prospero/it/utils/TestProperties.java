@@ -23,18 +23,26 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * Gives access to build properties defined in pom
+ * Gives access to test properties defined in test.properties
  */
 public class TestProperties {
+    private static final Properties properties;
+
     static {
         try {
-            final Properties properties = new Properties();
-            properties.load(TestProperties.class.getClassLoader().getResourceAsStream("properties-from-pom.properties"));
+            properties = new Properties();
+            properties.load(TestProperties.class.getClassLoader().getResourceAsStream("test.properties"));
             WF_CHANNEL_GROUP_ID = properties.getProperty("prospero.test.base.channel.groupId");
             WF_CHANNEL_ARTIFACT_ID = properties.getProperty("prospero.test.base.channel.artifactId");
             WF_CHANNEL_VERSION = properties.getProperty("prospero.test.base.channel.version");
-            final String testRepoUrls = properties.getProperty("prospero.test.base.repositories");
-            TEST_REPO_URLS = Arrays.asList(testRepoUrls.split(","));
+            TEST_REPO_URLS = Arrays.asList(properties.getProperty("prospero.test.base.repositories").split(","));
+            DATASOURCES_FP_GROUP_ID = properties.getProperty("prospero.test.datasources-feature-pack.groupId");
+            DATASOURCES_FP_ARTIFACT_ID = properties.getProperty("prospero.test.datasources-feature-pack.artifactId");
+            SERVER_PROFILE = properties.getProperty("prospero.test.server.profile");
+            GENERATE_SERVER_PROFILE = properties.getProperty("prospero.test.generate.server.profile");
+            GENERATE_SERVER_DIST_VERSION = properties.getProperty("prospero.test.generate.server_dist.version");
+            GENERATE_SERVER_DIST_URL = properties.getProperty("prospero.test.generate.server_dist.url");
+            GENERATE_SERVER_CORE_VERSION = properties.getProperty("prospero.test.generate.server_core.version");
         } catch (IOException e) {
             throw new RuntimeException("Unable to read properties file", e);
         }
@@ -44,4 +52,15 @@ public class TestProperties {
     public static final String WF_CHANNEL_ARTIFACT_ID;
     public static final String WF_CHANNEL_VERSION;
     public static final List<String> TEST_REPO_URLS;
+    public static final String DATASOURCES_FP_GROUP_ID;
+    public static final String DATASOURCES_FP_ARTIFACT_ID;
+    public static final String SERVER_PROFILE;
+    public static final String GENERATE_SERVER_PROFILE;
+    public static final String GENERATE_SERVER_DIST_VERSION;
+    public static final String GENERATE_SERVER_DIST_URL;
+    public static final String GENERATE_SERVER_CORE_VERSION;
+
+    public static String getProperty(String name) {
+        return properties.getProperty(name);
+    }
 }

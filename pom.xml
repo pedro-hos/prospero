@@ -74,17 +74,6 @@
         <prospero.target.server>Wildfly</prospero.target.server>
         <prospero.base.feature-pack.groupId>org.wildfly</prospero.base.feature-pack.groupId>
         <prospero.base.feature-pack.artifactId>wildfly-ee-galleon-pack</prospero.base.feature-pack.artifactId>
-        <prospero.test.base.channel.groupId>org.wildfly.channels</prospero.test.base.channel.groupId>
-        <prospero.test.base.channel.artifactId>wildfly</prospero.test.base.channel.artifactId>
-        <prospero.test.base.channel.version>${version.org.wildfly.galleon-pack}</prospero.test.base.channel.version>
-        <prospero.test.base.repositories>https://repo1.maven.org/maven2/,https://repository.jboss.org/nexus/content/groups/public/</prospero.test.base.repositories>
-        <prospero.test.datasources-feature-pack.groupId>org.wildfly</prospero.test.datasources-feature-pack.groupId>
-        <prospero.test.datasources-feature-pack.artifactId>wildfly-datasources-galleon-pack</prospero.test.datasources-feature-pack.artifactId>
-        <prospero.test.generate.server.profile>${prospero.test.server.profile}</prospero.test.generate.server.profile>
-        <prospero.test.generate.server_dist.version>28.0.0.Final</prospero.test.generate.server_dist.version>
-        <prospero.test.generate.server_dist.url>https://repo1.maven.org/maven2/org/wildfly/wildfly-dist/28.0.0.Final/wildfly-dist-28.0.0.Final.zip</prospero.test.generate.server_dist.url>
-        <prospero.test.generate.server_core.version>20.0.1.Final</prospero.test.generate.server_core.version>
-        <prospero.test.server.profile>wildfly</prospero.test.server.profile>
         <prospero.repo.id>central</prospero.repo.id>
         <prospero.repo.url>https://repo1.maven.org/maven2/</prospero.repo.url>
         <prospero.channel.resolution.mode>NOT_REQUIRED</prospero.channel.resolution.mode>

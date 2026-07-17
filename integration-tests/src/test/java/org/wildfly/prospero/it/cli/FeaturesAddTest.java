@@ -48,7 +48,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -73,13 +72,11 @@ public class FeaturesAddTest {
     public void setUp() throws IOException {
         targetDir = tempDir.newFolder("wildfly");
 
-        final Properties properties = new Properties();
-        properties.load(this.getClass().getClassLoader().getResourceAsStream("properties-from-pom.properties"));
         datasourceGalleonFp = String.format("%s:%s",
-                properties.getProperty("prospero.test.datasources-feature-pack.groupId"),
-                properties.getProperty("prospero.test.datasources-feature-pack.artifactId"));
+                TestProperties.DATASOURCES_FP_GROUP_ID,
+                TestProperties.DATASOURCES_FP_ARTIFACT_ID);
 
-        profileName = properties.getProperty("prospero.test.server.profile");
+        profileName = TestProperties.SERVER_PROFILE;
 
         wfChannelsFile = tempDir.newFile("wf-channel.yaml").toPath();
         final List<Repository> repositories = MetadataTestUtils.defaultRemoteRepositories().stream()

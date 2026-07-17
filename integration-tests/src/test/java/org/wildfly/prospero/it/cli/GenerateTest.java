@@ -50,7 +50,6 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
-import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
@@ -61,23 +60,10 @@ import static org.junit.Assert.assertTrue;
 
 public class GenerateTest {
 
-    private static final String PRODUCT;
-    private static final String VERSION;
-    protected static final String BASE_DIST_URL;
-    protected static final String CORE_VERSION;// = "20.0.1.Final";
-
-    static {
-        try {
-            final Properties properties = new Properties();
-            properties.load(GenerateTest.class.getClassLoader().getResourceAsStream("properties-from-pom.properties"));
-            PRODUCT = (String) properties.get("prospero.test.generate.server.profile");
-            VERSION = (String) properties.get("prospero.test.generate.server_dist.version");
-            BASE_DIST_URL = (String) properties.get("prospero.test.generate.server_dist.url");
-            CORE_VERSION = (String) properties.get("prospero.test.generate.server_core.version");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    private static final String PRODUCT = TestProperties.GENERATE_SERVER_PROFILE;
+    private static final String VERSION = TestProperties.GENERATE_SERVER_DIST_VERSION;
+    protected static final String BASE_DIST_URL = TestProperties.GENERATE_SERVER_DIST_URL;
+    protected static final String CORE_VERSION = TestProperties.GENERATE_SERVER_CORE_VERSION;
 
     @Rule
     public TemporaryFolder tempDir = new TemporaryFolder();
