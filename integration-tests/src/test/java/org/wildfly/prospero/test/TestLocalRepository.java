@@ -39,13 +39,14 @@ import org.eclipse.aether.resolution.ArtifactResult;
 import org.jboss.galleon.ProvisioningException;
 import org.wildfly.channel.ChannelManifest;
 import org.wildfly.channel.ChannelManifestMapper;
+import org.wildfly.prospero.it.utils.TestProperties;
 import org.wildfly.prospero.wfchannel.MavenSessionManager;
 
 /**
  * Utility class to generate a local Maven repository and deploy artifacts to it
  */
 public class TestLocalRepository {
-    public static final String GALLEON_PLUGINS_VERSION = BuildProperties.getProperty("version.org.wildfly.galleon-plugins");
+    public static final String GALLEON_PLUGINS_VERSION = TestProperties.getProperty("version.org.wildfly.galleon-plugins");
 
     private final Path root;
     private final RepositorySystem system;
