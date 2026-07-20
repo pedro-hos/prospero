@@ -74,6 +74,7 @@
         <prospero.target.server>Wildfly</prospero.target.server>
         <prospero.base.feature-pack.groupId>org.wildfly</prospero.base.feature-pack.groupId>
         <prospero.base.feature-pack.artifactId>wildfly-ee-galleon-pack</prospero.base.feature-pack.artifactId>
+        <prospero.base.feature-pack.family-prefix>wildfly</prospero.base.feature-pack.family-prefix>
         <prospero.test.base.channel.groupId>org.wildfly.channels</prospero.test.base.channel.groupId>
         <prospero.test.base.channel.artifactId>wildfly</prospero.test.base.channel.artifactId>
         <prospero.test.base.channel.version>${version.org.wildfly.galleon-pack}</prospero.test.base.channel.version>

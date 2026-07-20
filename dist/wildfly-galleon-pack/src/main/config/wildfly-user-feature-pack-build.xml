@@ -24,7 +24,7 @@
 
 <build xmlns="urn:wildfly:feature-pack-build:3.5" producer="org.wildfly.prospero:prospero-wildfly-galleon-pack">
   <dependencies>
-    <dependency group-id="${prospero.base.feature-pack.groupId}" artifact-id="${prospero.base.feature-pack.artifactId}" allowedFamily="wildfly:jakarta-ee-10+">
+    <dependency group-id="${prospero.base.feature-pack.groupId}" artifact-id="${prospero.base.feature-pack.artifactId}" allowedFamily="${prospero.base.feature-pack.family-prefix}:jakarta-ee-10+">
       <packages inherit="true"/>
       <default-configs inherit="false"/>
     </dependency>
